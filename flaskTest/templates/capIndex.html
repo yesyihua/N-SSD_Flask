@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摄像头拍照</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
+    <style>
+        .layui-form {
+            width: 94%;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .ms-controller {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <video id="video" width="900" height="650" controls>
+        </video>
+        <div>
+            <button class="layui-btn" id="capture">拍照</button>
+        </div>
+    </div>
+
+    <div>
+        <canvas id="canvas" width="900" height="650"></canvas>
+    </div>
+</div>
+
+
+<form class="layui-form layui-form-pane" ms-controller="msController" class="ms-controller">
+
+    <div class="layui-form-item" ms-if="isShow">
+        <div class="layui-inline">
+            <label class="layui-form-label">结果图</label>
+            <div class="layui-input-inline" style="width: 80%">
+                <img ms-attr="{src: @imgUrl}" style="width: 100%"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" ms-visible="isShow">
+        <div class="layui-inline">
+            <label class="layui-form-label">结果table</label>
+            <div class="layui-input-inline" style="width: 100%">
+                <table id="demo" lay-filter="test"></table>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item" ms-if="isShow">
+        <p>
+            item {
+            id: 1
+            name: '3~1'
+            }
+
+            item {
+            id: 2
+            name: '3~2'
+            }
+
+            item {
+            id: 3
+            name: '3~3'
+            }
+
+            item {
+            id: 4
+            name: '3~4'
+            }
+
+            item {
+            id: 5
+            name: '4~1'
+            }
+
+            item {
+            id: 6
+            name: '4~2'
+            }
+
+            item {
+            id: 7
+            name: '4~3'
+            }
+
+            item {
+            id: 8
+            name: '4~4'
+            }
+
+            item {
+            id: 9
+            name: '5~1'
+            }
+
+            item {
+            id: 10
+            name: '5~2'
+            }
+
+            item {
+            id: 11
+            name: '5~3'
+            }
+
+            item {
+            id: 12
+            name: '5~4'
+            }
+
+            item {
+            id: 13
+            name: '6~1'
+            }
+
+            item {
+            id: 14
+            name: '6~2'
+            }
+
+            item {
+            id: 15
+            name: '6~3'
+            }
+
+            item {
+            id: 16
+            name: '6~4'
+            }
+
+            item {
+            id: 17
+            name: '7~1'
+            }
+
+            item {
+            id: 18
+            name: '7~2'
+            }
+
+            item {
+            id: 19
+            name: '7~3'
+            }
+
+            item {
+            id: 20
+            name: '7~4'
+            }
+
+            item {
+            id: 21
+            name: '8~1'
+            }
+
+            item {
+            id: 22
+            name: '8~2'
+            }
+
+            item {
+            id: 23
+            name: '8~3'
+            }
+
+            item {
+            id: 24
+            name: '8~4'
+            }
+
+            item {
+            id: 25
+            name: '9~1'
+            }
+
+            item {
+            id: 26
+            name: '9~2'
+            }
+
+            item {
+            id: 27
+            name: '9~3'
+            }
+
+            item {
+            id: 28
+            name: '9~4'
+            }
+
+            item {
+            id: 29
+            name: '10~1'
+            }
+
+            item {
+            id: 30
+            name: '10~2'
+            }
+
+            item {
+            id: 31
+            name: '10~3'
+            }
+
+            item {
+            id: 32
+            name: '10~4'
+            }
+
+            item {
+            id: 33
+            name: '11~1'
+            }
+
+            item {
+            id: 34
+            name: '11~2'
+            }
+
+            item {
+            id: 35
+            name: '11~3'
+            }
+
+            item {
+            id: 36
+            name: '11~4'
+            }
+
+            item {
+            id: 37
+            name: '12~1'
+            }
+
+            item {
+            id: 38
+            name: '12~2'
+            }
+
+            item {
+            id: 39
+            name: '12~3'
+            }
+
+            item {
+            id: 40
+            name: '12~4'
+            }
+
+            item {
+            id: 41
+            name: '13~1'
+            }
+
+            item {
+            id: 42
+            name: '13~2'
+            }
+
+            item {
+            id: 43
+            name: '13~3'
+            }
+
+            item {
+            id: 44
+            name: '13~4'
+            }
+
+            item {
+            id: 45
+            name: '14~1'
+            }
+
+            item {
+            id: 46
+            name: '14~2'
+            }
+
+            item {
+            id: 47
+            name: '14~3'
+            }
+
+            item {
+            id: 48
+            name: '14~4'
+            }
+
+            item {
+            id: 49
+            name: '15~1'
+            }
+
+            item {
+            id: 50
+            name: '15~2'
+            }
+
+            item {
+            id: 51
+            name: '15~3'
+            }
+
+            item {
+            id: 52
+            name: '15~4'
+            }
+
+            item {
+            id: 53
+            name: '17~3'
+            }
+
+            item {
+            id: 54
+            name: '18~4'
+            }
+        </p>
+    </div>
+
+</form>
+<script src="../static/jquery.min.js"></script>
+<script src="../static/layui/layui.js"></script>
+<script src="../static/avalon.js"></script>
+<script>
+    var vm = avalon.define({
+        $id: "msController",
+        isShow: false,
+        imgUrl: "",
+        newdata: []
+
+    });
+    layui.use(['table', 'form'], function () {
+        var table = layui.table;
+        var form = layui.form;
+
+        function isSupportFileApi() {
+            if (window.File && window.FileList && window.FileReader && window.Blob) {
+                return true;
+            }
+            return false;
+        }
+
+
+        let firstImg = "";
+
+        //访问用户媒体设备的兼容方法
+        function getUserMedia(constraints, success, error) {
+            if (navigator.mediaDevices.getUserMedia) {
+                //最新的标准API
+                navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+            } else if (navigator.webkitGetUserMedia) {
+                //webkit核心浏览器
+                navigator.webkitGetUserMedia(constraints, success, error)
+            } else if (navigator.mozGetUserMedia) {
+                //firfox浏览器
+                navigator.mozGetUserMedia(constraints, success, error);
+            } else if (navigator.getUserMedia) {
+                //旧版API
+                navigator.getUserMedia(constraints, success, error);
+            }
+        }
+
+        let video = document.getElementById('video');
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+
+        function success(stream) {
+            //兼容webkit核心浏览器
+            let CompatibleURL = window.URL || window.webkitURL;
+            //将视频流设置为video元素的源
+            console.log(stream);
+
+            //video.src = CompatibleURL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.play();
+        }
+
+        function error(error) {
+            console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+        }
+
+        if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+            //调用用户媒体设备, 访问摄像头
+            getUserMedia({video: {width: 900, height: 650}}, success, error);
+        } else {
+            alert('不支持访问用户媒体');
+        }
+
+        /*document.getElementById('capture').addEventListener('click', function () {
+            context.drawImage(video, 0, 0, 900, 650);
+            saveImg();
+        })*/
+        setInterval(function () {
+            context.drawImage(video, 0, 0, 900, 650);
+            saveImg();
+
+        }, 1000);
+
+        function saveImg() {
+            let file = dataURLtoFile(canvas.toDataURL("image/jpeg", 1), "test.jpg")
+            var formData = new FormData();
+            formData.append('uploadFile', file, "test.jpg");
+            $.ajax({
+                url: "/api/saveImg",
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                mimeType: "multipart/form-data",
+                async: false,
+                dataType: 'json',
+                success: function (data, status) {
+                    console.log(data)
+                    if (data.ok == 1) {
+                        var file2 = "file2";
+                        if (firstImg == "") {
+                            //第一次
+                            firstImg = data.res;
+                        } else {
+                            file2 = data.res;
+                        }
+                        console.log(firstImg)
+                        console.log(file2)
+                        $.ajax({
+                            type: "post",
+                            url: "/api/detection",
+                            async: false,
+                            data: {
+                                "file1": firstImg,
+                                "file2": file2
+                            },
+                            dataType: 'json',
+                            success: function (res) {
+                                console.log(res)
+                                if (res.ok == 0) {
+                                    //图片没有改变
+                                    console.log("0")
+                                } else {
+                                    if (res.ok == 2) {
+                                        console.log("2")
+                                        //两次图片不一样，识别第二次的图片后赋值给firstImg
+                                        firstImg = res.res.split('.')[0] + ".jpg";
+                                    } else if (res.ok == 1) {
+                                        console.log("1")
+                                        //识别的结果是首次的图片
+                                    }
+                                    vm.isShow = true;
+                                    vm.imgUrl = '../tmp/result/' + res.res;
+                                    console.log(vm.imgUrl)
+                                    var arr = JSON.parse(res.data.data).data;
+                                    console.log(arr.length)
+                                    for (var i = 0; i < arr.length; i++) {
+                                        var item = {};
+                                        item.yMi = arr[i][1];
+                                        item.xMi = arr[i][2];
+                                        item.yMx = arr[i][3];
+                                        item.xMx = arr[i][4];
+                                        item.s_scores = arr[i][5];
+                                        item.s_classes = arr[i][6];
+                                        vm.newdata.push(item);
+                                        if (i == arr.length - 1) {
+                                            tableFun()
+                                        }
+                                    }
+                                }
+                            },
+                            error: function (res) {
+                                console.log(res);
+                            }
+                        });
+                    }
+                }, error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        var tableIns = table.render({
+            elem: '#demo'
+            , height: 312
+            , data: vm.newdata //数据接口
+            , cols: [[ //表头
+                {field: 'yMi', title: 'yMin'}
+                , {field: 'xMi', title: 'xMin'}
+                , {field: 'yMx', title: 'yMax'}
+                , {field: 'xMx', title: 'xMax'}
+                , {field: 's_scores', title: '概率'}
+                , {field: 's_classes', title: '类别', width: 80}
+            ]]
+        });
+
+        function tableFun() {
+            //第一个实例
+            console.log(vm.newdata)
+            tableIns.reload({
+                data: vm.newdata
+            });
+
+            form.render();
+        }
+
+        function dataURLtoBlob(dataurl) {
+            var arr = dataurl.split(',');
+            var mime = arr[0].match(/:(.*?);/)[1];
+            var bstr = atob(arr[1]);
+            var n = bstr.length;
+            var u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], {type: mime});
+        }
+
+        function dataURLtoFile(dataurl, filename) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            var blob = dataURLtoBlob(dataurl);
+            return blobToFile(blob, filename);
+        }
+
+        function blobToFile(blob, fileName) {
+            blob.lastModifiedDate = new Date();
+            blob.name = fileName;
+            return blob;
+        }
+    });
+
+
+</script>
+</body>
+</html>
